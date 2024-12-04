@@ -1,0 +1,16 @@
+#define MAXITERATIONS 128 /** maximal number of iterations */
+#define EPS 1.E-12 /** precision to reach */
+/*
+* calculate point x with f(x)=0 within EPS precision.
+* If no solution found return IEEE NaN (not a number).
+* @param f function to use
+* @param x0 the starting point.
+* @return x with f(x)=0 (or NaN in case of an error)
+*/
+double newton(double (*f)(double), double x0);
+
+/* Find x with f(x)=0 and a <= x <= b using bisection method. */
+double bisection(double (*f)(double), double a, double b);
+
+/* Find x with f(x)=0 and a <= x <= b using regular falsi method. */
+double regualarfalsi(double (*f)(double), double a, double b);
