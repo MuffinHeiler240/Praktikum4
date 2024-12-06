@@ -14,3 +14,7 @@ double bisection(double (*f)(double), double a, double b);
 
 /* Find x with f(x)=0 and a <= x <= b using regular falsi method. */
 double regualarfalsi(double (*f)(double), double a, double b);
+
+extern int iteNewton;
+extern int iteRegula;
+extern int iteBisection;
