@@ -1,3 +1,5 @@
+#ifndef NEWTON_H
+#define NEWTON_H
 #define MAXITERATIONS 128 /** maximal number of iterations */
 #define EPS 1.E-12 /** precision to reach */
 /*
@@ -18,3 +20,4 @@ double regualarfalsi(double (*f)(double), double a, double b);
 extern int iteNewton;
 extern int iteRegula;
 extern int iteBisection;
+#endif // NEWTON_H
