@@ -37,13 +37,14 @@ double bisection(double (*f)(double), double a, double b) {
     iteBisection = 0;
     do {
         c = (a + b) / 2;
+
+        fa = f(a);
         fc = f(c);
+
         if (fa * fc < 0) {
             b = c;
-            fb = fc;
         } else {
             a = c;
-            fa = fc;
         }
         iteBisection++;
     } while ((b - a > EPS) && (iteBisection < MAXITERATIONS));
