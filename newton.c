@@ -23,9 +23,6 @@ double newton(double (*f)(double), double x0) {
     return (iteNewton == MAXITERATIONS ? NAN : x);
 }
 
-/* Please check for errors and correct the following functions */
-/* Is this the correct way to implement the bisection method? */
-
 /* Find x with f(x)=0 and a <= x <= b using bisection method. */
 double bisection(double (*f)(double), double a, double b) {
     double fa = f(a);
@@ -51,11 +48,8 @@ double bisection(double (*f)(double), double a, double b) {
     return (iteBisection == MAXITERATIONS ? NAN : c);
 }
 
-/* Please check for errors and correct the following functions */
-/* Is this the correct way to implement the regular falsi method? */
-
 /* Find x with f(x)=0 and a <= x <= b using regular falsi method. */
-double regualarfalsi(double (*f)(double), double a, double b) {
+double regulafalsi(double (*f)(double), double a, double b) {
     double fa = f(a);
     double fb = f(b);
     double c, fc;
