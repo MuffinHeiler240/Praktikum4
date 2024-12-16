@@ -25,5 +25,5 @@ double regulafalsi(double (*f)(double), double a, double b);
 extern int iteNewton;
 extern int iteRegula;
 extern int iteBisection;
-#endif // NEWTON_H
+#endif /* NEWTON_H */
 
