@@ -23,7 +23,7 @@ int main(void) {
     printf("-- Newton -- \n");
     /* Test f1(x) = sin(x) */
     zeroPoint1 = newton(f1, startFct1); /* Initial guess close to pi */
-    printf("Zero point of six(x): %.6f, Start point: %.2f, Iterations: %d\n", zeroPoint1, startFct1, iteNewton);
+    printf("Zero point of sin(x): %.6f, Start point: %.2f, Iterations: %d\n", zeroPoint1, startFct1, iteNewton);
 
     /* Test f2(x) = x^2 - 3 */
     zeroPoint2 = newton(f2, startFct2); /* Initial guess close to sqrt(3)  */
