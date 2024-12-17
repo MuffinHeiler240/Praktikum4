@@ -2,6 +2,11 @@
 #define NEWTON_H
 #define MAXITERATIONS 128 /** maximal number of iterations */
 #define EPS 1.E-12 /** precision to reach */
+
+extern int iteNewton;
+extern int iteRegula;
+extern int iteBisection;
+
 /*
 * calculate point x with f(x)=0 within EPS precision.
 * If no solution found return IEEE NaN (not a number).
@@ -15,9 +20,9 @@ double newton(double (*f)(double), double x0);
 double bisection(double (*f)(double), double a, double b);
 
 /* Find x with f(x)=0 and a <= x <= b using regular falsi method. */
-double regualarfalsi(double (*f)(double), double a, double b);
+double regulafalsi(double (*f)(double), double a, double b);
 
 extern int iteNewton;
 extern int iteRegula;
 extern int iteBisection;
-#endif // NEWTON_H
+#endif /* NEWTON_H */

@@ -14,48 +14,46 @@ double f3(double x) {
     return tan(x) - x;
 }
 
-int main() {
-    double root1, root2, root3;
+int main(void) {
+    double zeroPoint1, zeroPoint2, zeroPoint3;
+    double startFct1 = 3.0;
+    double startFct2 = 2.0;
+    double startFct3 = 4.5;
 
+    printf("-- Newton -- \n");
     /* Test f1(x) = sin(x) */
-    printf("Finding root of f1(x) = sin(x):\n");
-    root1 = newton(f1, 3.0); /* Initial guess close to pi */
-    printf("Root of f1: %.6f, Iterations: %d\n\n", root1, iteNewton);
+    zeroPoint1 = newton(f1, startFct1); /* Initial guess close to pi */
+    printf("Zero point of sin(x): %.6f, Start point: %.2f, Iterations: %d\n", zeroPoint1, startFct1, iteNewton);
 
     /* Test f2(x) = x^2 - 3 */
-    printf("Finding root of f2(x) = x^2 - 3:\n");
-    root2 = newton(f2, 2.0); /* Initial guess close to sqrt(3)  */
-    printf("Root of f2: %.6f, Iterations: %d\n\n", root2, iteNewton);
+    zeroPoint2 = newton(f2, startFct2); /* Initial guess close to sqrt(3)  */
+    printf("Zero point of x^2 - 3: %.6f, Start point: %.2f, Iterations: %d\n", zeroPoint2, startFct2, iteNewton);
 
     /* Test f3(x) = tan(x) - x */
-    printf("Finding root of f3(x) = tan(x) - x:\n");
-    root3 = newton(f3, 4.5); /* Initial guess close to first positive root  */
-    printf("Root of f3: %.6f, Iterations: %d\n\n", root3, iteNewton);
+    zeroPoint3 = newton(f3, startFct3); /* Initial guess close to first positive root  */
+    printf("Zero point of tan(x) - x: %.6f, Start point: %.2f, Iterations: %d\n\n", zeroPoint3, startFct3, iteNewton);
 
-    /* Additional tests for bisection and regula falsi methods */
-    printf("Finding root of f1(x) = sin(x) using bisection:\n");
-    root1 = bisection(f1, 3.0, 4.0); /* Interval around pi */
-    printf("Root of f1: %.6f, Iterations: %d\n\n", root1, iteBisection);
+    printf("-- Bisection -- \n");
 
-    printf("Finding root of f2(x) = x^2 - 3 using bisection:\n");
-    root2 = bisection(f2, 1.0, 2.0); /* Interval around sqrt(3) */
-    printf("Root of f2: %.6f, Iterations: %d\n\n", root2, iteBisection);
+    zeroPoint1 = bisection(f1, startFct1, startFct1 + 1); /* Interval around pi */
+    printf("Zero point of sin(x): %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n", zeroPoint1, startFct1, startFct1 + 1, iteBisection);
 
-    printf("Finding root of f3(x) = tan(x) - x using bisection:\n");
-    root3 = bisection(f3, 4.4,4.5); /* Interval around first positive root */
-    printf("Root of f3: %.6f, Iterations: %d\n\n", root3, iteBisection);
+    zeroPoint2 = bisection(f2, startFct2 - 1, startFct2); /* Interval around sqrt(3) */
+    printf("Zero point of x^2 - 3: %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n", zeroPoint2, startFct2 - 1, startFct2, iteBisection);
 
-    printf("Finding root of f1(x) = sin(x) using regula falsi:\n");
-    root1 = regualarfalsi(f1, 3.0, 4.0); /* Interval around pi */
-    printf("Root of f1: %.6f, Iterations: %d\n\n", root1, iteRegula);
+    zeroPoint3 = bisection(f3, startFct3 - 0.1,startFct3); /* Interval around first positive root */
+    printf("Zero point of tan(x) - x: %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n\n", zeroPoint3, startFct3 - 0.1, startFct3, iteBisection);
 
-    printf("Finding root of f2(x) = x^2 - 3 using regula falsi:\n");
-    root2 = regualarfalsi(f2, 1.0, 2.0); /* Interval around sqrt(3) */
-    printf("Root of f2: %.6f, Iterations: %d\n\n", root2, iteRegula);
+    printf("-- Regula-Falsi -- \n");
 
-    printf("Finding root of f3(x) = tan(x) - x using regula falsi:\n");
-    root3 = regualarfalsi(f3, 4.4, 4.5); /* Interval around first positive root */
-    printf("Root of f3: %.6f, Iterations: %d\n\n", root3, iteRegula);
+    zeroPoint1 = regulafalsi(f1, startFct1, startFct1 + 1); /* Interval around pi */
+    printf("Zero point of sin(x): %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n", zeroPoint1, startFct1, startFct1 + 1, iteRegula);
+
+    zeroPoint2 = regulafalsi(f2, startFct2 - 1, startFct2); /* Interval around sqrt(3) */
+    printf("Zero point of x^2 - 3: %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n", zeroPoint2, startFct2 - 1, startFct2, iteRegula);
+
+    zeroPoint3 = regulafalsi(f3, startFct3 - 0.1, startFct3); /* Interval around first positive root */
+    printf("Zero point of tan(x) - x: %.6f, Start point a: %.2f, Start point b: %.2f, Iterations: %d\n", zeroPoint3, startFct3 - 0.1, startFct3, iteRegula);
 
     return 0;
 }

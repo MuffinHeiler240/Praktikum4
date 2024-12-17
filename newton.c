@@ -30,8 +30,7 @@ double bisection(double (*f)(double), double a, double b) {
         fc = f(c);
         if (f(a) * fc < 0) b = c;
         else a = c;
-        iteBisection++;
-    } while ((b - a > EPS) && iteBisection < MAXITERATIONS);
+    } while (++iteBisection < MAXITERATIONS && (b - a > EPS));
     return (iteBisection == MAXITERATIONS) ? NAN : c;
 }
 
@@ -46,6 +45,6 @@ double regulafalsi(double (*f)(double), double a, double b) {
         if (f(a) * fc < 0) b = c;
         else a = c;
         iteRegula++;
-    } while (fabs(fc) > EPS && iteRegula < MAXITERATIONS);
+    } while (++iteRegula < MAXITERATIONS && fabs(fc) > EPS);
     return (iteRegula == MAXITERATIONS) ? NAN : c;
 }
