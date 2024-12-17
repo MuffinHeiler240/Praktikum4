@@ -44,7 +44,6 @@ double regulafalsi(double (*f)(double), double a, double b) {
         fc = f(c);
         if (f(a) * fc < 0) b = c;
         else a = c;
-        iteRegula++;
     } while (++iteRegula < MAXITERATIONS && fabs(fc) > EPS);
     return (iteRegula == MAXITERATIONS) ? NAN : c;
 }
